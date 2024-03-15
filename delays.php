@@ -56,15 +56,19 @@ else{
 //Can add: Where...
 $delayed_table = "SELECT * FROM `delays`";
 $result = mysqli_query($con, $delayed_table);
-echo '<h1 class="red-font"> <font size="45"> Late </font> </h1>';
+echo '<div style="display: flex">
+<img src="https://elsys-bg.org/web/images/logo.svg" style="margin-RIGHT: 30px;">
+<h1 class="white-font"> <font size="40"> TUES delays </font> </h1>
+    
+</div>';
 
-echo '<p class="black-font">  <font size="29"> These students are late! </font> </p>';
+echo '<p class="white-font">  <font size="29"> These students are late! </font> </p>';
 
 echo '<table>';
 echo "<tr>
-<th>Sudent's name</th>
-<th>Class</th>
-<th>Today's date</th>
+<th class='white-font_colum1'>Sudent's name</th>
+<th class='white-font_colum2'>Class</th>
+<th class='white-font_colum3'>Date</th>
 </tr>";
 
 if (mysqli_num_rows($result) > 0) {
@@ -74,9 +78,9 @@ if (mysqli_num_rows($result) > 0) {
     $Class = $row["class"];
     $Todays_date = $row["todays_date"];
     echo "<tr>
-    <td>".$First_name. " ".$Last_name."</td>
-    <td>".$Class."</td>
-    <td>".$Todays_date."</td>
+    <td class='white-font_colum1'>".$First_name. " ".$Last_name."</td>
+    <td class='white-font_colum2'>".$Class."</td>
+    <td class='white-font_colum3'>".$Todays_date."</td>
   </tr>";
 }
 }else {
@@ -97,13 +101,39 @@ mysqli_close($con);
 
 
 <style>
+
 .red-font {
 color: red;
 }
 .black-font{
-colour: black;
+color: black;
 }
+.white-font{
+color: white;
+}
+.white-font_colum1{
+color: white;
+width: 250px;
+}
+.white-font_colum2{
+color: white;
+width: 70px;
+}
+.white-font_colum3{
+color: white;
+width: 150px;
+}
+.yellow-font{
+color: yellow;
+}
+
 table, th, td {
-  border:1px solid black;
+  border:1px solid white;
+}
+body{
+  background: url(https://i.pngimg.me/thumb/f/720/b8c1a31c41e24e369c1a.jpg);
+  background-repeat: repeat;
+  background-size: cover;
+  height:100dvh;
 }
 </style>
