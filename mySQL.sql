@@ -22,9 +22,9 @@ VALUES
 create table delays (
 	delay_id int not null auto_increment,
 	primary key(delay_id),
-    first_name int not null,
-    last_name int not null,
-    class int not null
+    first_name varchar(100) not null,
+    last_name varchar(100) not null,
+    class varchar(4) not null
 );
 
 create table absence (
