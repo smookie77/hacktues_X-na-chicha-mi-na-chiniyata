@@ -27,43 +27,14 @@ function unparse_url($parsed_url) {
 
   $fragment = isset($parsed_url['fragment']) ? '#' . $parsed_url['fragment'] : '';
 
-    var_dump($query\n);
+    var_dump($query);
     $parts = explode("&", $query);
     $one = $parts[0];
     $two = $parts[1];
-    var_dump($parts);
+    echo '<pre>' , var_dump($parts) , '</pre>';
 
   return "$host$path$query";
   }
   
-
-  
-  /*function mb_parse_url($url)
-  {
-      $enc_url = preg_replace_callback(
-          '%[^:/@?&=#]+%usD',
-          function ($matches)
-          {
-              return urlencode($matches[0]);
-          },
-          $url
-      );
-      
-      $parts = parse_url($enc_url);
-      
-      if($parts === false)
-      {
-          throw new \InvalidArgumentException('Malformed URL: ' . $url);
-      }
-      
-      foreach($parts as $name => $value)
-      {
-          $parts[$name] = urldecode($value);
-      }
-      var_dump($parts);
-      return $parts;
-  }*/
-  
-
 
 ?>
