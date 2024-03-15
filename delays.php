@@ -22,7 +22,7 @@ $StartingTime = '08:00:00';
 $todays_date = date('d-m-Y');
 
 //Once connected, check how to select students from the students_inf table
-$sql = "SELECT * FROM `student_inf` WHERE Chip_ID = 'F6 43 8D D4'";
+$sql = "SELECT * FROM `student_inf` WHERE Chip_ID = '01 02 03 04'";
 $result = mysqli_query($con, $sql);
 
 if (mysqli_num_rows($result) > 0) {
