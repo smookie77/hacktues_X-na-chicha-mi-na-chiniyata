@@ -1,5 +1,5 @@
 <?php
-$url = 'http://usr:pss@example.com:81/mypath/myfile.html?a=b&b[]=2&b[]=3#myfragment';
+$url = 'http://usr:pss@example.com:81/mypath/myfile.html?86 17 D6 48&09:01:00';
 
 if ($url === unparse_url(parse_url($url))) {
 
@@ -29,9 +29,11 @@ function unparse_url($parsed_url) {
 
     var_dump($query);
     $parts = explode("&", $query);
-    $one = $parts[0];
-    $two = $parts[1];
+    $Chip_ID = $parts[0];
+    $CheckInTime = $parts[1];
     echo '<pre>' , var_dump($parts) , '</pre>';
+    echo $Chip_ID;
+    echo $CheckInTime;
 
   return "$host$path$query";
   }
