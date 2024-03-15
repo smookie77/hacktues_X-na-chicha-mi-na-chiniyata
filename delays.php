@@ -16,13 +16,14 @@ if (mysqli_connect_errno()) {
     exit();
 
 }
+
 //Change from arduino
 $CheckInTime = '08:01:00';
 $StartingTime = '08:00:00';
-$todays_date = date('d-m-Y');
+$todays_date = date('Y-m-d');
 
 //Once connected, check how to select students from the students_inf table
-$sql = "SELECT * FROM `student_inf` WHERE Chip_ID = '01 02 03 04'";
+$sql = "SELECT * FROM `student_inf` WHERE Chip_ID = '86 17 D6 48'";
 $result = mysqli_query($con, $sql);
 
 if (mysqli_num_rows($result) > 0) {
@@ -42,8 +43,9 @@ if (strtotime($CheckInTime) > strtotime($StartingTime)) {
 
     //TO DO: CHECK THIS ONE AND REMOVE THE TMP SOLUTION
     $diffrence = strtotime($CheckInTime) - strtotime($StartingTime) - strtotime( '02:00:00' ) ;
-    
+
     $insertSQL = "INSERT INTO `delays`( `first_name`, `last_name`, `class`, `todays_date`) VALUES ('$First_name','$Last_name','$Class','$todays_date')";
+    var_dump($insertSQL);
     if (mysqli_query($con, $insertSQL)) {
       } else {
       }
