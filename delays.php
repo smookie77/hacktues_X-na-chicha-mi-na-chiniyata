@@ -37,15 +37,15 @@ function unparse_url($parsed_url) {
 
   $fragment = isset($parsed_url['fragment']) ? '#' . $parsed_url['fragment'] : '';
 
-    var_dump($query);
     $parts = explode("&", $query);
+    global $Chip_ID;
     $Chip_ID = $parts[0];
+    global $CheckInTime;
     $CheckInTime = $parts[1];
-    echo '<pre>' , var_dump($parts) , '</pre>';
     echo $Chip_ID;
     echo $CheckInTime;
 
-  return "$host$path$query";
+    return "$host$path$query";
   }
   
 
@@ -54,14 +54,13 @@ $con = mysqli_connect($serverName, $userName, $password, $dbName);
 
 if (mysqli_connect_errno()) {
     exit();
-
 }
 //Change from arduino
 $StartingTime = '08:00:00';
 $todays_date = date('d-m-Y');
 
 //Once connected, check how to select students from the students_inf table
-$sql = "SELECT * FROM `student_inf` WHERE Chip_ID = $Chip_ID";
+$sql = "SELECT * FROM `student_inf` WHERE Chip_ID = '$Chip_ID'";
 $result = mysqli_query($con, $sql);
 
 if (mysqli_num_rows($result) > 0) {
